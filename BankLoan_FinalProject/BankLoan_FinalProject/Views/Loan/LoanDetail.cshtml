@@ -1,0 +1,61 @@
+﻿@model IEnumerable<BankLoan_FinalProject.Models.Loan>
+
+@{
+    ViewBag.Title = "LoanDetail";
+}
+
+<h2>Loan Detail</h2>
+
+<p>
+    @Html.ActionLink("Loan Details of New Record ", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoanType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th> Modify </th>
+        <th>Delete</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoanType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            <h3>   @Html.ActionLink("Edit", "Edit", new { id = item.id }) </h3></td>
+        <td>
+            
+            <h3>@Html.ActionLink("Delete", "Delete", new { id = item.id })</h3>
+        </td>
+    </tr>
+}
+
+</table>
+
+<a href="@Url.Action("Correct","Home")">Back to Main Site </a>
